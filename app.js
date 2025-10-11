@@ -5,12 +5,12 @@ const cors = require('cors')
 
 const app = express()
 app.use(cors({
-    origin:true,
+    origin:'*',
     methods:['GET','POST'],
     allowedHeaders:['Content-Type']
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use('/api',authRouter)
+app.use('/',authRouter)
 
 module.exports = app
