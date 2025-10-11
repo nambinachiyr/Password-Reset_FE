@@ -6,8 +6,8 @@ mongoose.connect(process.env.MONGO_DB)
 .then(()=>{
     console.log("Mongo DB is Connected")
 
-    app.listen(3002,"0.0.0.0",()=>{
-        console.log(`Server is running on port -> http://localhost:3002`)
+    app.listen(process.env.PORT,"0.0.0.0",()=>{
+        console.log(`Server is running on port -> http://localhost:${process.env.PORT}`)
     })
 })
 .catch(()=>{
