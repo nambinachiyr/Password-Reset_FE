@@ -12,7 +12,7 @@ const authController = {
         else{
             console.log(User)
             const str = ["0","A","B","4","C","D","a","b","8","C","d","f","F","5","g","h","G","6","H","I","J","K","i","j","3","k","l","m","n","N","1","M","L","O","9","P","p","o","q","r","s","t","T","R","Q","S","u","U","V","v","w","y","W","7","X","x","Y","Z","z"]
-            const RandomString = `${str[Math.floor(Math.random()*str.length-1)]+str[Math.floor(Math.random()*str.length-1)]+str[Math.floor(Math.random()*str.length-1)]+str[Math.floor(Math.random()*str.length-1)]}`
+            const RandomString = `${str[Math.floor(Math.random()*str.length)]+str[Math.floor(Math.random()*str.length)]+str[Math.floor(Math.random()*str.length)]+str[Math.floor(Math.random()*str.length)]}`
             console.log(RandomString)
             const Expiry = Date.now()+60*60*1000
             console.log(Expiry)
