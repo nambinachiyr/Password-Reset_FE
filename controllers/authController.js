@@ -27,8 +27,8 @@ const authController = {
             <p>Click this link to Change the password</p>
             <a href = ${link} target="_blank">Reset Your Password </a>`
             
-             sendEmail(User.email,"Verify your Email",html)
-            console.log("Yes success")
+             const mail = await sendEmail(User.email,"Verify your Email",html)
+            console.log("Yes success",mail)
             res.json({message:"Successfully Sent it!!!",email })
         }
 
