@@ -2,7 +2,8 @@ const user = require('../model/userModel')
 const sendEmail = require('../sendMail')
 const authController = {
     GetEmail:async(req,res)=>{
-        const email = req.body.email
+        try{
+            const email = req.body.email
         const User = await user.findOne({email:email})
        
        if(!User){
@@ -16,7 +17,7 @@ const authController = {
             const Expiry = Date.now()+60*60*1000
             console.log(Expiry)
             User.randomString = RandomString
-            User.randomStringExpiry = new Date(Expiry).toLocaleDateString()
+            User.randomStringExpiry = new Date(Expiry)
             await User.save()
             console.log(User)
             const link = `http://localhost:5173/password_reset?rs=${RandomString}&email=${User.email}`
@@ -27,8 +28,12 @@ const authController = {
             <a href = ${link} target="_blank">Reset Your Password </a>`
             
             await sendEmail(User.email,"Verify your Email",html)
-
+            console.log("Yes success")
             res.json({message:"Successfully Sent it!!!",email })
+        }
+
+        }catch(error){
+           console.log(error)
         }
     },
 

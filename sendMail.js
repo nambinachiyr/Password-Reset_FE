@@ -30,20 +30,17 @@ const sendEmail = async(to,subject,htmlContent)=>{
       to,
       from:process.env.GOOGLE_EM, // Use the email address or domain you verified above
       subject,
-      htmlContent
-      
+      text:"Verfication Mail",
+      html:htmlContent      
     };
-    
-    (async () => {
-      try {
-        await sgMail.send(msg);
-      } catch (error) {
-        console.error(error);
-    
-        if (error.response) {
-          console.error(error.response.body)
-        }
-      }
-    })
+    sgMail
+  .send(msg)
+  .then(() => {}, error => {
+    console.error(error);
+
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  });
 }
 module.exports = sendEmail
