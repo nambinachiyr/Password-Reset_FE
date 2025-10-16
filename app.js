@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const app = express()
 app.use(cors({
-    origin:'*',
+    origin:'https://passwod-reset.netlify.app/',
     methods:['GET','POST'],
     allowedHeaders:['Content-Type']
 }))

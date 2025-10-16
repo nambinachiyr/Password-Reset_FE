@@ -63,7 +63,7 @@ const authController = {
           if(password1!=password2){
             return res.status(404).json({message:"Password are not match"})
         }
-        // Geting params from FrontEnd
+        // Getting params from FrontEnd
          const {rs,email} = req.query
          
         //  Find that Specific user Using the randomString
