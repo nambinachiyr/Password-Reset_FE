@@ -39,15 +39,18 @@ const authController = {
 
    
     logIn_Create:async(req,res)=>{
-        const {email,password,name} = req.body
-        console.log({name,email,password})
+        const {email,password} = req.body
+        console.log({email,password})
         try{
-           const newUser = new user({
-            name,email,password
-           })
-           const saved = await newUser.save()
-           console.log(saved)
-           res.json({message:"Success",saved})
+           const IsUserExist = await user.findOne({email})
+           if(!IsUserExist) {
+             return res.status(404).json({message:"User is not Exist"})
+           }
+          const userPW = IsUserExist.password
+          if(userPW !== password){
+            return res.status(404).json({message:"Invalid Password"})
+          }
+          res.status(200).json({message:"Successfully Logged In!"})
         }
         catch(err){
             res.status(500).json({message:"Server Error ",err:err.message})
