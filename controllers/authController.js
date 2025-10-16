@@ -20,7 +20,7 @@ const authController = {
             User.randomStringExpiry = new Date(Expiry)
             await User.save()
             console.log(User)
-            const link = `https://68ef7d7bc5d6f7e7124b9f83--passwod-reset.netlify.app/password_reset?rs=${RandomString}&email=${User.email}`
+            const link = `https://passwod-reset.netlify.app/password_reset?rs=${RandomString}&email=${User.email}`
             console.log(link)
             const html = `
             <h1>Email Verification</h1>
