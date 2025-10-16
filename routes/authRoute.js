@@ -5,7 +5,7 @@ const authRouter = express.Router()
 
 authRouter.post('/password_reset',GetEmail)
 
-authRouter.post('/login',logIn_Create)
+authRouter.post('/log',logIn_Create)
 
 authRouter.post('/newpassword',newPassword)
 
