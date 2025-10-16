@@ -1,5 +1,5 @@
 // const nodemailer = require('nodemailer')
-require('dotenv').config()
+
 
 // const sendEmail = async(to, subject, htmlContent)=>{
 //     const transporter = nodemailer.createTransport({
@@ -22,6 +22,7 @@ require('dotenv').config()
 // }
 
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config()
 
 const sendEmail = async(to,subject,htmlContent)=>{
 
