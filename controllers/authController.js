@@ -44,10 +44,12 @@ const authController = {
         try{
            const IsUserExist = await user.findOne({email})
            if(!IsUserExist) {
+            console.log("Email,ok")
              return res.status(404).json({message:"User is not Exist"})
            }
           const userPW = IsUserExist.password
           if(userPW !== password){
+              console.log(userPW,password)
             return res.status(404).json({message:"Invalid Password"})
           }
           res.status(200).json({message:"Successfully Logged In!"})
